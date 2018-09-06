@@ -7,7 +7,7 @@ ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false \
 # Install .NET Core SDK
 ENV DOTNET_SDK_VERSION 2.1.401
 
-RUN apl install curl
+RUN apk install curl
 
 # set up node
 ENV NODE_VERSION 8.9.4
