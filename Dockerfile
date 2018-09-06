@@ -1,4 +1,4 @@
-FROM microsoft/dotnet:2.1-sdk-alpine
+FROM microsoft/dotnet:2.1-sdk
 
 ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false \
     LC_ALL=en_US.UTF-8 \
@@ -6,8 +6,6 @@ ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false \
 
 # Install .NET Core SDK
 ENV DOTNET_SDK_VERSION 2.1.401
-
-RUN apk add curl
 
 # set up node
 ENV NODE_VERSION 8.9.4
