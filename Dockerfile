@@ -7,7 +7,7 @@ ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false \
 # Install .NET Core SDK
 ENV DOTNET_SDK_VERSION 2.1.401
 
-set up node
+# set up node
 ENV NODE_VERSION 8.9.4
 ENV NODE_DOWNLOAD_SHA 21fb4690e349f82d708ae766def01d7fec1b085ce1f5ab30d9bda8ee126ca8fc
 RUN curl -SL "https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.gz" --output nodejs.tar.gz \
