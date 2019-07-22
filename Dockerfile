@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/core/sdk:3.0.100-preview6-alpine
+FROM mcr.microsoft.com/dotnet/core/sdk:3.0.100-preview6-buster
 
 ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false \
     LC_ALL=en_US.UTF-8 \
@@ -6,10 +6,6 @@ ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false \
 
 # Install .NET Core SDK
 ENV DOTNET_SDK_VERSION 3.0.100-preview6
-
-RUN apk add --update \
-    curl \
-    && rm -rf /var/cache/apk/*
 
 # set up node
 ENV NODE_VERSION 12.6.0
