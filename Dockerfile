@@ -1,17 +1,19 @@
-FROM microsoft/dotnet:2.1-sdk
+FROM mcr.microsoft.com/dotnet/core/sdk:3.0.100-preview6-alpine
 
 ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false \
     LC_ALL=en_US.UTF-8 \
     LANG=en_US.UTF-8
 
 # Install .NET Core SDK
-ENV DOTNET_SDK_VERSION 2.1.401
+ENV DOTNET_SDK_VERSION 3.0.100-preview6
+
+RUN apk add --update \
+    curl \
+    && rm -rf /var/cache/apk/*
 
 # set up node
-ENV NODE_VERSION 8.9.4
-ENV NODE_DOWNLOAD_SHA 21fb4690e349f82d708ae766def01d7fec1b085ce1f5ab30d9bda8ee126ca8fc
+ENV NODE_VERSION 12.6.0
 RUN curl -SL "https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.gz" --output nodejs.tar.gz \
-    && echo "$NODE_DOWNLOAD_SHA nodejs.tar.gz" | sha256sum -c - \
     && tar -xzf "nodejs.tar.gz" -C /usr/local --strip-components=1 \
     && rm nodejs.tar.gz \
     && ln -s /usr/local/bin/node /usr/local/bin/nodejs
